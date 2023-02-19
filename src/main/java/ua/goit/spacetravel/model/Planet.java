@@ -1,6 +1,6 @@
 package ua.goit.spacetravel.model;
 
-import lombok.*;
+import lombok.Data;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,9 +9,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "planet")
-@Getter
-@Setter
-@AllArgsConstructor
+@Data
 public class Planet {
     @Id
     @Column(length = 3, nullable = false)
@@ -21,6 +19,11 @@ public class Planet {
     private String name;
 
     public Planet() {
+    }
+
+    public Planet(String id, String name) {
+        this.id = id;
+        this.name = name;
     }
 
     public void setId(String id) {

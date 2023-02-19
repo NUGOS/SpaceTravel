@@ -1,8 +1,6 @@
 package ua.goit.spacetravel.model;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.*;
@@ -11,8 +9,6 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name = "ticket")
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
 public class Ticket {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -35,5 +31,45 @@ public class Ticket {
     @JoinColumn(name = "to_planet_id", nullable = false)
     @ToString.Exclude
     private Planet toPlanetId;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public Client getClientId() {
+        return clientId;
+    }
+
+    public void setClientId(Client clientId) {
+        this.clientId = clientId;
+    }
+
+    public Planet getFromPlanetId() {
+        return fromPlanetId;
+    }
+
+    public void setFromPlanetId(Planet fromPlanetId) {
+        this.fromPlanetId = fromPlanetId;
+    }
+
+    public Planet getToPlanetId() {
+        return toPlanetId;
+    }
+
+    public void setToPlanetId(Planet toPlanetId) {
+        this.toPlanetId = toPlanetId;
+    }
 }
 
