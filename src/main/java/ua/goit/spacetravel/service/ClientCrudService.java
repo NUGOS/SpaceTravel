@@ -7,6 +7,8 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import ua.goit.spacetravel.model.Client;
+import ua.goit.spacetravel.model.Planet;
+import ua.goit.spacetravel.model.Ticket;
 import ua.goit.spacetravel.repository.ClientCrudRepository;
 
 import javax.persistence.criteria.CriteriaQuery;
@@ -18,6 +20,8 @@ public class ClientCrudService implements ClientCrudRepository {
 
     SessionFactory sessionFactory = new Configuration()
             .addAnnotatedClass(Client.class)
+            .addAnnotatedClass(Ticket.class)
+            .addAnnotatedClass(Planet.class)
             .buildSessionFactory();
 
     public Client getById(Long id) {
